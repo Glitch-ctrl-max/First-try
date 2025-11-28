@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Helm Deployment
-        run: echo "Gello leo"
+        run: |
+          echo "Gello leo"
+          echo "Its not Gello leo, its Gallelio "
+          echo "thanks brother"
       - name: Helm Deployment2
         run: echo "Job Completed"
