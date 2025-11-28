@@ -1,0 +1,11 @@
+name: First_workflow
+run-name: 'My First workflow'
+on: workflow_dispatch
+jobs: 
+  first-job:
+    runs-on: ubuntu-slim
+    steps:
+      - name: Helm Deployment
+        run: echo "Gello leo"
+      - name: Helm Deployment2
+        run: echo "Job Completed"
