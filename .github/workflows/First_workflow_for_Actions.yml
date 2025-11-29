@@ -25,3 +25,21 @@ jobs:
           echo "thanks brother"
       - name: Helm Deployment2
         run: echo "Job Completed"
+
+  second-job:
+   needs: first-job
+   runs-on: ubuntu-slim
+   steps:
+     - name: Install Dependencies
+       uses: actions/checkout@v4
+     - name: Depedencies
+       run: npm ci
+     - name: Build project
+       run: npm run build
+     - name: Deploy
+       run: echo "Deploying...."
+
+       
+        
+      
+        
