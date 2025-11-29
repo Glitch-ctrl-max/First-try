@@ -1,18 +1,17 @@
 name: First_workflow
 run-name: 'First workflow [${{ inputs.choose-env }}]: ${{ inputs.bluegreen }}'
-on: 
-  workflow_dispatch:
-    inputs: 
-      bluegreen:
-        description: 'On which cluster it needs to be deployed - Blue/Green'
-        type: choice
-        default: Blue
-        options: ['Blue','Green']
-      choose-env:
-        description: 'Environment where you are deploying - Dev/UAT/Prod'
-        type: choice
-        default: Dev
-        options: ['Dev','UAT','Prod']
+on: push
+ # inputs: 
+   # bluegreen:
+    #    description: 'On which cluster it needs to be deployed - Blue/Green'
+     #   type: choice
+      #  default: Blue
+       # options: ['Blue','Green']
+      #choose-env:
+       # description: 'Environment where you are deploying - Dev/UAT/Prod'
+        # type: choice
+        # default: Dev
+        # options: ['Dev','UAT','Prod']
 
 jobs: 
   first-job:
@@ -30,7 +29,9 @@ jobs:
    needs: first-job
    runs-on: ubuntu-slim
    steps:
-     - name: Install Dependencies
+     - name: Install Node JS
+       uses: actions/stepup-node@v3
+     - name: Get Code
        uses: actions/checkout@v4
      - name: Depedencies
        run: npm ci
