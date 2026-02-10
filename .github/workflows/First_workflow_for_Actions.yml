@@ -1,17 +1,23 @@
 name: First_workflow
 run-name: 'First workflow [${{ inputs.choose-env }}]: ${{ inputs.bluegreen }}'
-on: push
- # inputs: 
-   # bluegreen:
-    #    description: 'On which cluster it needs to be deployed - Blue/Green'
-     #   type: choice
-      #  default: Blue
-       # options: ['Blue','Green']
-      #choose-env:
-       # description: 'Environment where you are deploying - Dev/UAT/Prod'
-        # type: choice
-        # default: Dev
-        # options: ['Dev','UAT','Prod']
+on: 
+ workflow_dispatch:
+   inputs: 
+    bluegreen:
+        description: 'On which cluster it needs to be deployed - Blue/Green'
+        type: boolean
+        default: false
+       
+    choose-env:
+        description: 'Environment where you are deploying - Dev/UAT/Prod'
+        type: boolean
+        default: false
+        
+    choose-UAT:
+        description: 'Environment where you are deploying - Dev/UAT/Prod'
+        type: boolean
+        default: false
+        
 
 jobs: 
   first-job:
